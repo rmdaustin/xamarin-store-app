@@ -24,8 +24,12 @@ namespace XamarinStore
 		public ShippingDetailsFragment(User user)
 		{
 			this.user = user;
+			this.user.StateCorrected += UpdateState;
 		}
-
+		public void UpdateState (string State) {
+			if (state != null)
+				state.Text = State;
+		}
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
